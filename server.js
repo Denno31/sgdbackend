@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json())
 
 const port = 3000 || process.env.PORT;
-app.get('/build',(req,res)=>{
+app.get('/',(req,res)=>{
     res.send('Hello world');
 })
 app.use('/api/v1/on-covid-19',covidRouter)
