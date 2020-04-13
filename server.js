@@ -5,7 +5,7 @@ const covidRouter = require('./routes')
 const app = express();
 app.use(express.json())
 
-const port = 3000 || process.env.PORT;
+const port =  process.env.PORT || 5000;
 app.get('/',(req,res)=>{
     res.send('Hello world');
 })
