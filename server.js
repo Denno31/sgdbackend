@@ -12,11 +12,10 @@ app.use(express.json())
 app.use(xmlMiddleware())
 app.use(morgan(function (tokens, req, res) {
     return [
-      tokens.method(req, res)+'\t\t',
-      tokens.url(req, res)+'\t\t',
-      tokens.status(req, res)+'\t\t',
-      tokens.res(req, res, 'content-length')+'\t\t', 
-      Math.trunc(tokens['response-time'](req, res))+'ms',
+      tokens.method(req, res),'\t\t',
+      tokens.url(req, res),'\t\t',
+      tokens.status(req, res),'\t\t',
+      tokens['response-time'] < 10 ? '0'+Math.trunc(tokens['response-time'](req, res))+'ms':'0'+Math.trunc(tokens['response-time'](req, res))+'ms',
     ].join(' ')
   }, { stream: logs }))
 const port =  process.env.PORT || 5000;
